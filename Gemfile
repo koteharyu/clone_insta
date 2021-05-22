@@ -19,6 +19,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'faker'
 gem 'kaminari'
+gem 'swearjar' # NGワードの投稿を追加するため
 
 
 group :development, :test do
