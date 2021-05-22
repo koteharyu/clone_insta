@@ -22,6 +22,7 @@ module CloneInsta
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
@@ -29,5 +30,18 @@ module CloneInsta
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # 国際化対応
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
+    config.i18n.default_local = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    # generatorが生成するファイルの制限
+    config.generators do |g|
+      g.assets false #CSS, JSの自動生成を制限
+      g.test_framework false # Minitestの自動生成を制限
+      g.skip_routes true # routingの自動生成を制限
+    end
   end
 end
