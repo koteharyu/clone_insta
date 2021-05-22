@@ -15,9 +15,10 @@
 #
 class Post < ApplicationRecord
   mount_uploaders :images, PostImagesUploader
+  serialize :images, JSON # imagesという属性をJSON形式に保存させるため
 
   validates :body, presence: true, length: { maximum: 1000 }
   validates :images, presecne: true
-  
+
   belongs_to :user
 end
