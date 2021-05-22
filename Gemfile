@@ -18,6 +18,7 @@ gem 'font-awesome-sass', '< 5.0.13'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'faker'
+gem 'kaminari'
 
 
 group :development, :test do
