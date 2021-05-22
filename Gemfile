@@ -14,6 +14,7 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'sorcery'
 gem 'rails-i18n', '~> 5.1'
+gem 'font-awesome-sass', '< 5.0.13'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
