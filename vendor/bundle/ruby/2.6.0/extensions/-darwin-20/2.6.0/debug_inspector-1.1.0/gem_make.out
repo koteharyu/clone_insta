@@ -1,0 +1,15 @@
+current directory: /Users/haryu/Documents/clone_insta/vendor/bundle/ruby/2.6.0/gems/debug_inspector-1.1.0/ext/debug_inspector
+/Users/haryu/.rbenv/versions/2.6.6/bin/ruby -I /Users/haryu/.rbenv/versions/2.6.6/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210522-80195-11843u1.rb extconf.rb
+creating Makefile
+
+current directory: /Users/haryu/Documents/clone_insta/vendor/bundle/ruby/2.6.0/gems/debug_inspector-1.1.0/ext/debug_inspector
+make DESTDIR\= clean
+
+current directory: /Users/haryu/Documents/clone_insta/vendor/bundle/ruby/2.6.0/gems/debug_inspector-1.1.0/ext/debug_inspector
+make DESTDIR\=
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/haryu/Documents/clone_insta/vendor/bundle/ruby/2.6.0/gems/debug_inspector-1.1.0/ext/debug_inspector
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20210522-80195-1o91gwt
