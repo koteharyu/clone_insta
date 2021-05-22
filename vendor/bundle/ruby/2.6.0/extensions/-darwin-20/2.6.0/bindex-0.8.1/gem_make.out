@@ -1,0 +1,15 @@
+current directory: /Users/haryu/Documents/clone_insta/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/haryu/.rbenv/versions/2.6.6/bin/ruby -I /Users/haryu/.rbenv/versions/2.6.6/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210522-62622-1wnaiib.rb extconf.rb
+creating Makefile
+
+current directory: /Users/haryu/Documents/clone_insta/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= clean
+
+current directory: /Users/haryu/Documents/clone_insta/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\=
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/haryu/Documents/clone_insta/vendor/bundle/ruby/2.6.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20210522-62622-xo47od/skiptrace/internal
