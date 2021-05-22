@@ -29,10 +29,7 @@
         .col-10
           = simple_format(@post.body)
       hr
-      = render 'coments/comments', comments: @comments
+      = render 'comments/comments', comments: @comments
     hr.m-0
       .post-comment.p-3
-        form.form-inline.mb-0
-          input type="text" class="form-control inpout-comment-body" placeholder="コメント"
-          button type="submit" class="btn btn-raised btn-primary"
-            | 投稿
+        = render 'comments/form', post: @post, comment: @comment
