@@ -29,17 +29,7 @@
         .col-10
           = simple_format(@post.body)
       hr
-      .row.no-gutters
-        .col-2
-          = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle'
-        .col-10
-          | ダミーコメンツ
-      hr
-      .row.no-gutters
-        .col-2
-          = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle'
-        .col-10
-          | ダミーコメンツ
+      = render 'coments/comments', comments: @comments
     hr.m-0
       .post-comment.p-3
         form.form-inline.mb-0
