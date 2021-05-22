@@ -17,6 +17,7 @@ gem 'rails-i18n', '~> 5.1'
 gem 'font-awesome-sass', '< 5.0.13'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'faker'
 
 
 group :development, :test do

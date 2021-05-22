@@ -75,6 +75,8 @@ GEM
     debug_inspector (1.1.0)
     erubi (1.10.0)
     execjs (2.8.1)
+    faker (2.18.0)
+      i18n (>= 1.6, < 2)
     faraday (1.4.1)
       faraday-excon (~> 1.1)
       faraday-net_http (~> 1.0)
@@ -264,6 +266,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
   carrierwave
+  faker
   font-awesome-sass (< 5.0.13)
   html2slim
   jbuilder (~> 2.5)
