@@ -20,6 +20,8 @@ gem 'mini_magick'
 gem 'faker'
 gem 'kaminari'
 gem 'swearjar' # NGワードの投稿を追加するため
+gem 'jquery-rails'
+gem 'popper_js'
 
 
 group :development, :test do
