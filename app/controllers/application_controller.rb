@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+  add_flash_types :waring, :success, :info, :danger
+
   before_action :require_login
 
   private
