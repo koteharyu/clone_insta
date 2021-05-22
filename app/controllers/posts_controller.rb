@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
 
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
