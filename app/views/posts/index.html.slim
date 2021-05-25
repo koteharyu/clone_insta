@@ -13,17 +13,6 @@
             .card-header
               | ユーザー
             .card-body
-              .user.mb-3
-                = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
-                | はりゅ
-              .user.mb-3
-                = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
-                | 上田
-              .user.mb-3
-                = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
-                | 広大
-              .user.mb-3
-                = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
-                | ken
+              = render @users
             .card-footer
               = link_to 'すべて見る', '#'
