@@ -1,2 +1,2 @@
-= form_with url: relationship_path(current_user.active_relationships.find_by(followed_id: user.id)), method: :delete, remote: true |f|
+= form_with url: relationship_path(current_user.active_relationships.find_by(followed_id: user.id)), method: :delete, remote: true do |f|
   = f.submit "アンフォロー", class: 'btn btn-raised btn-warning'
