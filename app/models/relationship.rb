@@ -15,4 +15,6 @@
 #  index_relationships_on_follower_id                  (follower_id)
 #
 class Relationship < ApplicationRecord
+  belongs_to :followed, class_name: "User"
+  belongs_to :follower, class_name: "User"
 end
