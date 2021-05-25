@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
   before_action :require_login, only: [:create, :edti, :update, :destroy]
 
   def create
-    if ng_word?()
     @comment = current_user.comments.build(comment_params)
     @comment.save
   end
