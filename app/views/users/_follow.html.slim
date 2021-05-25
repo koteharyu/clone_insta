@@ -1,0 +1,2 @@
+= form_with url: relationships_path(followed_id: user.id), method: :post, remote: true do |f|
+  = f.submit 'フォロー', class: 'btn btn-raised btn-outline-warning'
