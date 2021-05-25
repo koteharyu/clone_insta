@@ -50,6 +50,7 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: '投稿を削除しました'
   end
 
+
   private
 
   def post_params
