@@ -19,4 +19,5 @@ class Notification < ApplicationRecord
   belongs_to :user
 
   scope :recent, -> (count) { order(created_at: :desc).limit(count)}
+  enum read: { unread: false, read: true }
 end
