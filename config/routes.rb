@@ -43,6 +43,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :posts, shallow: true do
+    collection do
+      get :search
+    end
     resources :comments
     resources :likes, only: [:create, :destroy]
   end
