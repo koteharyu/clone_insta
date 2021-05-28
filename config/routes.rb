@@ -57,6 +57,6 @@ Rails.application.routes.draw do
 
   namespace :mypage do
     resource :account, only: [:edit, :update]
-    resources :notifications, only: :create
+    resources :notifications, only: :index
   end
 end
