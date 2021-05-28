@@ -15,6 +15,6 @@
 #  index_notifications_on_user_id        (user_id)
 #
 class Notification < ApplicationRecord
-  belongs_to :noticeable
+  belongs_to :noticeable, polymorhpic: true
   belongs_to :user
 end
