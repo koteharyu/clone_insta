@@ -17,8 +17,6 @@
 #
 class Notification < ApplicationRecord
 
-  include Rails.application.routes.url_helpers
-
   belongs_to :noticeable, polymorphic: true
   belongs_to :user
 
@@ -26,24 +24,10 @@ class Notification < ApplicationRecord
   enum read: { unread: false, read: true }
 
   def call_appropiate_partial
-    case self.noticable_type
-    when "Comment"
-      'commented_to_own_post'
-    when "Like"
-      'liked_to_own_post'
-    when "Relationship"
-      'followed_me'
-    end
+    noticeable.partial_name
   end
 
   def appropiate_path
-    case self.noticeable_type
-    when "Comment"
-      post_path(self.noticeable.post, anchor: "comment-#{noticeable.id}")
-    when "Like"
-      post_path(self.noticeable.post)
-    when "Relationship"
-      user_path(self.noticeable.followed)
-    end
+    noticeable.resource_path
   end
 end

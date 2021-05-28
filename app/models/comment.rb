@@ -16,6 +16,8 @@
 #
 class Comment < ApplicationRecord
 
+  include Rails.application.routes.url_helpers
+
   after_create_commit :create_notification
 
   validates :body, presence: true, length: { maximum: 1000 }
@@ -28,5 +30,13 @@ class Comment < ApplicationRecord
   private
   def create_notification
     Notification.create(noticeable: self, user: post.user)
+  end
+
+  def partial_name
+    "Commented_to_own_post"
+  end
+
+  def resource_path
+    post_path(post)
   end
 end

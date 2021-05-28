@@ -15,6 +15,8 @@
 #  index_likes_on_user_id_and_post_id  (user_id,post_id) UNIQUE
 #
 class Like < ApplicationRecord
+  include Rails.application.routes.url_helpers
+
   after_create_commit :create_notification
 
   belongs_to :user
@@ -25,5 +27,13 @@ class Like < ApplicationRecord
   private
   def create_notification
     Notification.create(noticeable: self, user: post.user)
+  end
+
+  def partial_name
+    'Liked_to_own_post'
+  end
+
+  def resource_path
+    post_path(post)
   end
 end

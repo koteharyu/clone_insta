@@ -15,6 +15,7 @@
 #  index_relationships_on_follower_id                  (follower_id)
 #
 class Relationship < ApplicationRecord
+  include Rails.application.routes.url_helpers
   after_create_commit :create_notification
 
   belongs_to :followed, class_name: 'User'
@@ -28,5 +29,13 @@ class Relationship < ApplicationRecord
   private
   def create_notification
     Notification.create(noticeable: self, user: follower)
+  end
+
+  def partial_name
+    'folloed_me'
+  end
+
+  def resource_path
+    user_path(followed)
   end
 end
