@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'user_sessions#destroy'
 
   resources :users
+  resources :relationships, only: [:create, :destroy]
   resources :posts, shallow: true do
     collection do
       get :search
@@ -49,5 +50,8 @@ Rails.application.routes.draw do
     resources :comments
     resources :likes, only: [:create, :destroy]
   end
-  resources :relationships, only: [:create, :destroy]
+
+  namespace :mypage do
+    resource :account, only: [:edit, :update]
+  end
 end
