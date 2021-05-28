@@ -27,10 +27,6 @@ class Comment < ApplicationRecord
 
   has_one :notification, as: :noticeable, dependent: :destroy
 
-  private
-  def create_notification
-    Notification.create(noticeable: self, user: post.user)
-  end
 
   def partial_name
     "Commented_to_own_post"
@@ -38,5 +34,10 @@ class Comment < ApplicationRecord
 
   def resource_path
     post_path(post)
+  end
+  
+  private
+  def create_notification
+    Notification.create(noticeable: self, user: post.user)
   end
 end

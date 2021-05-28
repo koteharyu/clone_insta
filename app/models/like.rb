@@ -24,10 +24,6 @@ class Like < ApplicationRecord
 
   validates :user_id, uniqueness: { scope: :post_id }
 
-  private
-  def create_notification
-    Notification.create(noticeable: self, user: post.user)
-  end
 
   def partial_name
     'Liked_to_own_post'
@@ -35,5 +31,10 @@ class Like < ApplicationRecord
 
   def resource_path
     post_path(post)
+  end
+  
+  private
+  def create_notification
+    Notification.create(noticeable: self, user: post.user)
   end
 end

@@ -26,16 +26,17 @@ class Relationship < ApplicationRecord
   validates :follower_id, presence: true
   validates :followed_id, presence: true
 
-  private
-  def create_notification
-    Notification.create(noticeable: self, user: follower)
-  end
-
   def partial_name
-    'folloed_me'
+    'followed_me'
   end
 
   def resource_path
     user_path(followed)
   end
+
+  private
+  def create_notification
+    Notification.create(noticeable: self, user: follower)
+  end
+
 end
