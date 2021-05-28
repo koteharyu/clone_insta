@@ -24,5 +24,5 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  scope :body_contain, -> (word) { Post.where('body LIKE ?', "%#{word}%")}
+  scope :body_contain, ->(word) { Post.where('body LIKE ?', "%#{word}%") }
 end
