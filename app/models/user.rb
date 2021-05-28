@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id               :integer          not null, primary key
+#  avatar           :string
 #  crypted_password :string
 #  email            :string           not null
 #  name             :string           not null
@@ -16,6 +17,8 @@
 #
 class User < ApplicationRecord
   authenticates_with_sorcery!
+
+  mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
