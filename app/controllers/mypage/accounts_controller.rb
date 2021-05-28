@@ -1,3 +1,21 @@
-class Mypage::AccountsController < ApplicationController
-  
+class Mypage::AccountsController < Mypage::BaseController
+
+  def edit
+    @user = User.find(current_user.id)
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(accout_params)
+      redirect_to edit_mypage_account_path, success: 'プロフィールを更新しました'
+    else
+      flash.now[:danger] = "プロフィールの更新に失敗しました"
+      render :edit
+    end
+  end
+
+  private
+    def accout_params
+      params.requrie(:user).permit(:name, :email, :avatar, :avatar_cache)
+    end
 end
