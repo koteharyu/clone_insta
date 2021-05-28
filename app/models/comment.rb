@@ -15,10 +15,18 @@
 #  index_comments_on_user_id  (user_id)
 #
 class Comment < ApplicationRecord
+
+  after_create_commit :create_notification
+
   validates :body, presence: true, length: { maximum: 1000 }
 
   belongs_to :user
   belongs_to :post
 
   has_one :notification, as: :noticeable, dependent: :destroy
+
+  private
+  def create_notification
+    Notification.create(noticeable: self, user: post.user)
+  end
 end
