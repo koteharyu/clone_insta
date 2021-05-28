@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id               :integer          not null, primary key
+#  avatar           :string
 #  crypted_password :string
 #  email            :string           not null
 #  name             :string           not null
