@@ -29,13 +29,13 @@ class Comment < ApplicationRecord
 
 
   def partial_name
-    "Commented_to_own_post"
+    "commented_to_own_post"
   end
 
   def resource_path
     post_path(post)
   end
-  
+
   private
   def create_notification
     Notification.create(noticeable: self, user: post.user)

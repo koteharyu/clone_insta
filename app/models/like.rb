@@ -26,13 +26,13 @@ class Like < ApplicationRecord
 
 
   def partial_name
-    'Liked_to_own_post'
+    'liked_to_own_post'
   end
 
   def resource_path
     post_path(post)
   end
-  
+
   private
   def create_notification
     Notification.create(noticeable: self, user: post.user)
