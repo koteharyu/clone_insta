@@ -21,6 +21,7 @@ gem 'faker'
 gem 'kaminari'
 gem 'jquery-rails'
 gem 'popper_js'
+gem 'config'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -39,6 +40,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'letter_opener_web'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
