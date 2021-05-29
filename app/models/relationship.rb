@@ -15,9 +15,22 @@
 #  index_relationships_on_follower_id                  (follower_id)
 #
 class Relationship < ApplicationRecord
+  include Noticeable
   belongs_to :followed, class_name: 'User'
   belongs_to :follower, class_name: 'User'
 
   validates :follower_id, presence: true
   validates :followed_id, presence: true
+
+  def partial_name
+    'followed_me'
+  end
+
+  def resource_path
+    user_path(followed)
+  end
+
+  def notification_user
+    followed
+  end
 end
