@@ -18,7 +18,7 @@ module ApplicationHelper
       twitter: {
         card: 'summary_large_image',
         image: {
-          _: Settings.meta.og.image_path,
+          _: Settings.meta.og.image_path
         }
       }
     }
