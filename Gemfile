@@ -22,7 +22,7 @@ gem 'kaminari'
 gem 'jquery-rails'
 gem 'popper_js'
 gem 'config'
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.0'
 gem 'sinatra'
 
 group :development, :test do
