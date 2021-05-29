@@ -9,7 +9,7 @@ class Relationship < ApplicationRecord
   validates :follower_id, presence: true
   validates :followed_id, presence: true
   # ユニーク制約
-  # validates :follower_id, uniqueness: { scope: :followed_id }
+  validates :follower_id, uniqueness: { scope: :followed_id }
 
   # ダックタイピングのため、overrideする
   def partial_name
