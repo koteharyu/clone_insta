@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   namespace :mypage do
     resource :account, only: [:edit, :update]
     resources :notifications, only: :index
+    resource :notification_setting, only: [:edit, :update]
   end
 
   if Rails.env.development?
