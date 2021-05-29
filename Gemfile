@@ -24,6 +24,7 @@ gem 'popper_js'
 gem 'config'
 gem 'sidekiq', '~> 5.0'
 gem 'sinatra'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
