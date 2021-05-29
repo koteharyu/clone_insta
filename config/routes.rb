@@ -62,6 +62,6 @@ Rails.application.routes.draw do
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: '/letter_opener'
-    mount Sidekiq::Web, at: 'sidekiq'
+    mount Sidekiq::Web, at: '/sidekiq'
   end
 end
