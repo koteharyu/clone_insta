@@ -19,6 +19,7 @@ module Noticeable
   end
 
   private
+
   def create_notification
     Notification.create(noticeable: self, user: notification_user)
   end

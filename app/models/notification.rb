@@ -16,11 +16,10 @@
 #  index_notifications_on_user_id                            (user_id)
 #
 class Notification < ApplicationRecord
-
   belongs_to :noticeable, polymorphic: true
   belongs_to :user
 
-  scope :recent, -> (count) { order(created_at: :desc).limit(count)}
+  scope :recent, ->(count) { order(created_at: :desc).limit(count) }
   enum read: { unread: false, read: true }
 
   def call_appropiate_partial

@@ -15,7 +15,6 @@
 #  index_comments_on_user_id  (user_id)
 #
 class Comment < ApplicationRecord
-
   include Noticeable
 
   validates :body, presence: true, length: { maximum: 1000 }
@@ -23,11 +22,8 @@ class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
-
-
-
   def partial_name
-    "commented_to_own_post"
+    'commented_to_own_post'
   end
 
   def resource_path
