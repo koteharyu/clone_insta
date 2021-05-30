@@ -9,6 +9,7 @@ module ApplicationHelper
       canonical: request.original_url,
       og: {
         title: :full_title,
+        image: image_url('/images/default.png'),
         type: Settings.meta.og.type,
         url: request.original_url,
         site_name: :site,
