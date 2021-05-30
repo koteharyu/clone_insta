@@ -9,7 +9,7 @@ module ApplicationHelper
       canonical: request.original_url,
       og: {
         title: :full_title,
-        image: image_url('/images/default.png'),
+        image: image_url(Settings.meta.og.image_url)
         type: Settings.meta.og.type,
         url: request.original_url,
         site_name: :site,
@@ -18,9 +18,6 @@ module ApplicationHelper
       },
       twitter: {
         card: 'summary_large_image',
-        image: {
-          _: Settings.meta.og.image_path
-        }
       }
     }
   end
