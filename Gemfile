@@ -25,9 +25,18 @@ gem 'config'
 gem 'sidekiq', '~> 5.0'
 gem 'sinatra'
 gem 'meta-tags'
+gem 'simplecov'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'spring-commands-rspec'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do
