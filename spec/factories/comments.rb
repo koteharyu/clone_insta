@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factroy :comment do
+  factory :comment do
     body { Faker::Lorem.word }
     post
     body
