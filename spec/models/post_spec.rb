@@ -16,5 +16,14 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  
+  describe 'validation' do
+    user = create(:user)
+    post = create(:post, user: user)
+    
+    context 'all attributes are fulled' do
+      it 'returns true' do
+        expect(post).to be true
+      end
+    end
+  end
 end
