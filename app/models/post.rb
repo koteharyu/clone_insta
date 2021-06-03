@@ -26,7 +26,7 @@ class Post < ApplicationRecord
   has_one :notification, as: :noticeable, dependent: :destroy
 
   scope :post_like, -> (post_body) { where('body LIKE ?', "%#{post_body}%") }
-  scope :comment_like, -> (comment_body) { joins(:comment).where('comments.body LIKE ?', "%#{comment_body}%")}
-  scope :user_like, -> (user_name) { joins(:user).where('user.name LIKE ?', "%#{user_name}%")}
+  scope :comment_like, -> (comment_body) { joins(:comments).where('comments.body LIKE ?', "%#{comment_body}%")}
+  scope :user_like, -> (user_name) { joins(:user).where('name LIKE ?', "%#{user_name}%")}
 
 end

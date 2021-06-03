@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   before_action :require_login
   before_action :set_search_form
+  
+  protected
 
   def set_search_form
     @search_form = SearchPostsForm.new(search_params)
@@ -12,7 +14,6 @@ class ApplicationController < ActionController::Base
     params.fetch(:search, {}).permit(:post_body, :comment_body, :user_name)
   end
 
-  protected
 
   def not_authenticated
     redirect_to login_url
