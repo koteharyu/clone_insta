@@ -44,6 +44,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :relationships, only: [:create, :destroy]
+
   resources :posts, shallow: true do
     collection do
       get :search
