@@ -46,15 +46,16 @@ RSpec.describe 'Post', type: :system do
     end
   end
 
-  describe 'posts/edit' do
+  describe 'edit/destroy' do
     before do
       login(user1)
     end
     context 'user1s post' do
-      it 'displays an edit button ' do
+      it 'displays an edit button and delete button' do
         visit posts_path
         within "#post-#{post1.id}" do
           expect(page).to have_css ".edit-button"
+          expect(page).to have_css ".delete-button"
         end
       end
     end
