@@ -18,5 +18,9 @@ FactoryBot.define do
     body { Faker::Lorem.word }
     images { [File.open("#{Rails.root}/spec/fixtures/fixture.png")] }
     user
+
+    trait :multiple_images do
+      images { [File.open("#{Rails.root}/spec/fixtures/fixture.png"), File.open("#{Rails.root}/spec/fixtures/dummy.png")]}
+    end
   end
 end
