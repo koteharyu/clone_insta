@@ -44,11 +44,11 @@ module CloneInsta
       g.assets false #CSS, JSの自動生成を制限
       g.skip_routes true # routingの自動生成を制限
       g.test_framework :rspec,
-        view_spec: false,
-        helper_spec: false,
-        controller_spec: false,
-        routing_spec: false,
-        request_spec: false
+                       view_spec: false,
+                       helper_spec: false,
+                       controller_spec: false,
+                       routing_spec: false,
+                       request_spec: false
     end
   end
 end
