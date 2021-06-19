@@ -23,7 +23,7 @@ ja:
         user_id: 'ユーザー'
         post_id: '投稿'
       message:
-        body: ' 'メッセージ''
+        body: 'メッセージ'
   attributes:
     created_at: '作成日時'
     updated_at: '更新日時'

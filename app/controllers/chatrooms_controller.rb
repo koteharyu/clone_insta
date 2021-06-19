@@ -1,12 +1,14 @@
 class ChatroomsController < ApplicationController
+  before_action :require_user_ids, only: %i[create]
+
   def index
-    @chatrooms = current_user.chatrooms.includes(:users, :messages).page(params[:page]).order(created_at: :desc)
+    @chatrooms = current_user.chatrooms.includes(:users, messages: :user).page(params[:page]).order(created_at: :desc)
   end
 
   def create
     users = User.where(id: params.dig(:chatroom, :user_ids)) + [current_user]
     @chatroom = Chatroom.chatroom_for_users(users)
-    @messages = @chatroom.messages.order(created_at: :desc).limit(100).reverse
+    # @messages = @chatroom.messages.order(created_at: :desc).limit(100).reverse
     @chatroom_user = current_user.chatroom_users.find_by(chatroom_id: @chatroom.id)
     redirect_to chatroom_path(@chatroom)
   end
@@ -16,7 +18,10 @@ class ChatroomsController < ApplicationController
   end
 
   private
-  def requrie_user_ids
-    redirect_back(fallback_location: root_path, danger: 'パラメーターが不正です') if params.dig(:chatroom. :user_ids).reject(&:blank?).blank?
+
+  def require_user_ids
+    if params.dig(:chatroom, :user_ids).reject(&:blank?).blank?
+      redirect_back(fallback_location: root_path, danger: 'パラメータが不正です')
+    end
   end
 end

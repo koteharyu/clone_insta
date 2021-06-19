@@ -17,5 +17,5 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :chatroom
-  validates :body, presence: true, lenght: { maximum: 1000 }
+  validates :body, presence: true, length: { maximum: 1000 }
 end
