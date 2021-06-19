@@ -57,6 +57,10 @@ Rails.application.routes.draw do
     resource :read, only: :create
   end
 
+  resources :chatrooms, only: %i[create show], shallow: true do
+    resources :messages
+  end
+
   namespace :mypage do
     resource :account, only: [:edit, :update]
     resources :notifications, only: :index
