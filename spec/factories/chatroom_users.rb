@@ -11,8 +11,9 @@
 #
 # Indexes
 #
-#  index_chatroom_users_on_chatroom_id  (chatroom_id)
-#  index_chatroom_users_on_user_id      (user_id)
+#  index_chatroom_users_on_chatroom_id              (chatroom_id)
+#  index_chatroom_users_on_user_id                  (user_id)
+#  index_chatroom_users_on_user_id_and_chatroom_id  (user_id,chatroom_id) UNIQUE
 #
 FactoryBot.define do
   factory :chatroom_user do
