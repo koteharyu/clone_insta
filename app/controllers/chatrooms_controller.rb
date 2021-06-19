@@ -1,6 +1,6 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = current_user.chatrooms.page(params[:page]).order(created_at: :desc)
+    @chatrooms = current_user.chatrooms.includes(:users, :messages).page(params[:page]).order(created_at: :desc)
   end
 
   def create
@@ -12,6 +12,6 @@ class ChatroomsController < ApplicationController
   end
 
   def show
-    @chatroom = current_user.chatrooms.find(params[:id])
+    @chatroom = current_user.chatrooms.includes(:users).find(params[:id])
   end
 end
