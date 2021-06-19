@@ -43,21 +43,70 @@ RSpec.describe 'Post', type: :system do
       fill_in "本文", with: "test body"
       click_on "登録する"
       expect(page).to have_content "投稿に成功しました"
+      expect(page).to have_content "test body"
     end
   end
 
-  describe 'edit/destroy' do
+  describe 'edit/update' do
     before do
       login(user1)
     end
-    context 'user1s post' do
-      it 'displays an edit button and delete button' do
-        visit posts_path
-        within "#post-#{post1.id}" do
-          expect(page).to have_css ".edit-button"
-          expect(page).to have_css ".delete-button"
-        end
+
+    it 'display a edit button with post1' do
+      visit root_path
+      within "#post-#{post1.id}" do
+        expect(page).to have_css '.edit-button'
       end
     end
+
+    it 'not display a edit button with post2' do
+      user1.follow user2
+      visit root_path
+      within "#post-#{post2.id}" do
+        expect(page).to_not have_css '.edit-button'
+      end
+    end
+
+    it 'update a post1' do
+      visit edit_post_path(post1)
+      within "#posts_form" do
+        attach_file '画像', "#{Rails.root}/spec/fixtures/fixture.png"
+        fill_in '本文', with: 'update spec'
+        click_on '更新する'
+      end
+      expect(page).to have_content '投稿の更新に成功しました'
+      expect(current_path).to eq posts_path
+    end
   end
+
+  describe 'destroy' do
+    before do
+      login(user1)
+    end
+
+    it 'display a delete button with post1' do
+      visit root_path
+      within "#post-#{post1.id}" do
+        expect(page).to have_css ".delete-button"
+      end
+    end
+
+    it 'not display a delete button with post2' do
+      user1.follow user2
+      visit root_path
+      within "#post-#{post2.id}" do
+        expect(page).to_not have_css ".delete-button"
+      end
+    end
+
+    it 'destroy post1' do
+      within "#post-#{post1.id}" do
+        page.accept_confirm { find('.delete-button').click }
+      end
+      expect(page).to have_content '投稿を削除しました'
+      expect(page).to_not have_content post1.body
+    end
+
+  end
+
 end

@@ -26,6 +26,7 @@ gem 'sidekiq', '~> 5.0'
 gem 'sinatra'
 gem 'meta-tags'
 gem 'simplecov'
+gem 'pre-commit'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

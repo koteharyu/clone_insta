@@ -218,7 +218,10 @@ GEM
     parallel (1.20.1)
     parser (3.0.1.1)
       ast (~> 2.4.1)
+    pluginator (1.5.0)
     popper_js (2.9.2)
+    pre-commit (0.39.0)
+      pluginator (~> 1.5)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -412,6 +415,7 @@ DEPENDENCIES
   meta-tags
   mini_magick
   popper_js
+  pre-commit
   pry-byebug
   pry-rails
   puma (~> 3.11)

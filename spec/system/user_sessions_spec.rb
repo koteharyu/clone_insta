@@ -26,7 +26,7 @@ RSpec.describe 'UserSessions', type: :system do
     end
   end
 
-  describe 'login' do
+  describe 'logout' do
     xit 'redirects to login path' do
       login(user)
       click_on "ログアウト"
