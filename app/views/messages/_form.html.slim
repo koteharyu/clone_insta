@@ -1,0 +1,9 @@
+= form_with model: [chatroom, message], remtoe: true do |f|
+  = render 'shared/error_messages', object: message
+  .form-group
+    = f.label :body
+    = f.text_field :body, class: 'form-control mb-3 input-message-body'
+    - if message.new_record?
+      = f.submit "投稿", class: 'btn btn-raised btn-primary'
+    - else
+      = f.submit "更新", class: 'btn btn-raised btn-primary'
