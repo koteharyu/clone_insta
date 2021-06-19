@@ -27,6 +27,7 @@ gem 'sinatra'
 gem 'meta-tags'
 gem 'simplecov'
 gem 'pre-commit'
+gem 'draper'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
