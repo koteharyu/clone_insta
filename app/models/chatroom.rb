@@ -16,13 +16,10 @@ class Chatroom < ApplicationRecord
     user_ids = users.map(&:id).sort
     name = user_ids.join(':').to_s
 
-    if chatroom = where(name: name).first
-      chatroom
-    else
+    unless chatroom = find_by(name: name)
       chatroom = new(name: name)
       chatroom.users = users
       chatroom.save
-      chatroom
     end
   end
 end
