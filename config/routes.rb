@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     resource :read, only: :create
   end
 
-  resources :chatrooms, only: %i[create show], shallow: true do
+  resources :chatrooms, only: %i[index create show], shallow: true do
     resources :messages
   end
 
