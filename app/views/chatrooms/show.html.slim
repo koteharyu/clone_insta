@@ -4,19 +4,18 @@
       .card
         .card-header
           h2 チャットルーム
-          = link_to "参加者一覧", "#", class: 'btn btn-raised btn-primary', data: { toggle: 'modal', target: '#chatroom-users'}
+          = link_to '参加者一覧', '#', class: 'btn btn-primary btn-raised', data: { toggle: 'modal', target: '#chatroom-users'}
         .card-body
           ul.list-unstyled#message-box
             = render @chatroom.messages
           = render 'messages/form', chatroom: @chatroom, message: @message ||= Message.new
-
-#chatroom-users.modal tabindex="-1"
+#chatroom-users.modal.fade tabindex="-1"
   .modal-dialog
-    .moda-content
+    .modal-content
       .modal-header
         h5.modal-title 参加者
         button.close aria-label="Close" data-dismiss="modal" type="button"
-          span aria-hidden="true" x
-      .mdoal-body
+          span aria-hidden="true"  ×
+      .modal-body
         = render @chatroom.users
       .modal-footer.text-center
