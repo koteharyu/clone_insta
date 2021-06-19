@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :require_login, only: %i[create]
   def create
     @message = current_user.messages.build(message_params)
     if @message.save

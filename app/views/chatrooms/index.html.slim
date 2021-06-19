@@ -1,14 +1,13 @@
 .container
   .text-center.mb-3
     = link_to 'チャットルームを作る', '#', class: 'btn btn-primary btn-raised', data: { toggle: 'modal', target: '#create-chatroom-modal'}
-  - if @chatrooms.present?
-    .row
-      .col-md-6.col-12.offset-md-3.mb-3
-        .card
-          .card-body
-            = render(@chatrooms) || 'まだありません'
-      .col-md-6.col-12.offset-md-3
-        = paginate @chatrooms
+  .row
+    .col-md-6.col-12.offset-md-3.mb-3
+      .card
+        .card-body
+          = render(@chatrooms) || 'まだありません'
+    .col-md-6.col-12.offset-md-3
+      = paginate @chatrooms
 #create-chatroom-modal.modal.fade tabindex="-1"
   = form_with model: Chatroom.new, local: true do |f|
     - if current_user.following.present?
