@@ -11,9 +11,8 @@
 #
 # Indexes
 #
-#  index_chatroom_users_on_chatroom_id             (chatroom_id)
-#  index_chatroom_users_on_user_id                 (user_id)
-#  index_chatroom_users_on_user_id_and_chatoom_id  (user_id,) UNIQUE
+#  index_chatroom_users_on_chatroom_id  (chatroom_id)
+#  index_chatroom_users_on_user_id      (user_id)
 #
 class ChatroomUser < ApplicationRecord
   belongs_to :user
