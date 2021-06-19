@@ -14,4 +14,9 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = current_user.chatrooms.includes(:users).find(params[:id])
   end
+
+  private
+  def requrie_user_ids
+    redirect_back(fallback_location: root_path, danger: 'パラメーターが不正です') if params.dig(:chatroom. :user_ids).reject(&:blank?).blank?
+  end
 end
