@@ -1,6 +1,11 @@
 class MessagesController < ApplicationController
   def create
     @message = current_user.messages.create(message_params)
+    ActionCable.server.broadcast(
+      "chatroom_#{@message.chatroom_id}",
+      { type: :create, html: (render_to_string partial: 'message', locals: { message: @message }, layout: false), message: @message.as_json }
+    )
+    head :ok
   end
 
   def edit
@@ -15,6 +20,11 @@ class MessagesController < ApplicationController
   def destroy
     @message = current_user.messages.find(params[:id])
     @message.destroy!
+    ActionCable.server.broadcast(
+      "chatroom_#{@message.chatroom_id}",
+      { type: :create, html: (render_to_string partial: 'message', locals: { message: @message }, layout: false), message: @message.as_json }
+    )
+    head :ok
   end
 
   private
