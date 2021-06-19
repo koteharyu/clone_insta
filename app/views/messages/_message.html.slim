@@ -4,7 +4,7 @@ li.media.mb-3.border-bottom.p-2 id="message-#{message.id}" data-sender-id="#{mes
       = link_to message.user.name, user_path(message.user)
     = image_tag message.user.avatar.url, class: 'rounded-circle mr-3', size: '50x50'
   .media-body
-    = simpe_format(message.body)
+    = simple_format(message.body)
     div.text-right
       = message.decorate.created_at
     div.text-right
