@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_061602) do
+ActiveRecord::Schema.define(version: 2021_06_19_035041) do
+
+  create_table "chatroom_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "chatroom_id"
+    t.datetime "last_read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_chatroom_users_on_chatroom_id"
+    t.index ["user_id", nil], name: "index_chatroom_users_on_user_id_and_chatoom_id", unique: true
+    t.index ["user_id"], name: "index_chatroom_users_on_user_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "body", null: false
@@ -30,6 +47,16 @@ ActiveRecord::Schema.define(version: 2021_05_29_061602) do
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "chatroom_id"
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
