@@ -1,4 +1,4 @@
-li.media.mb-3.border-bottom.p-2 id="message-#{message.id}"
+li.media.mb-3.border-bottom.p-2 id="message-#{message.id}" data-sender-id="#{message.user.id}"
   div
     div
       = link_to message.user.name, user_path(message.user)
