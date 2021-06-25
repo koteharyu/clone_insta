@@ -8,11 +8,14 @@
             .text-center.mb-3
               = link_to 'プロフィール編集', edit_mypage_account_path, class: 'btn btn-raised btn-warning'
           .text-center.mb-3
-            = image_tag @user.avatar.url, size: '40x40', class: 'rounded-circle, mr-1'
+            = image_tag @user.avatar.url, size: '100x100', class: 'rounded-circle mr-1'
           .profile.text-center.mb-3
             = @user.name
           .text-center
             = render 'follow_area', user: @user
+          - if current_user && current_user&.id != @user.id
+            .text-center
+              = render 'message_button', user: @user
           hr
           .row
             = render partial: 'posts/thumbnail_post', collection: @user.posts

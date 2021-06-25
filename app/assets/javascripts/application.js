@@ -18,3 +18,5 @@
 //= require swiper.js
 //= require activestorage
 //= require_tree .
+//= require cable
+//= require cable/chatroom.js
