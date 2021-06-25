@@ -9,9 +9,6 @@ class ChatroomsController < ApplicationController
   def create
     users = User.where(id: params.dig(:chatroom, :user_ids)) + [current_user]
     @chatroom = Chatroom.chatroom_for_users(users)
-    # @messages = @chatroom.messages.order(created_at: :desc).limit(100).reverse
-    binding.pry
-    # @chatroom_user = current_user.chatroom_users.find_by(chatroom_id: @chatroom.id)
     redirect_to chatroom_path(@chatroom)
   end
 
