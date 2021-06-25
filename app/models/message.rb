@@ -18,4 +18,6 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :chatroom
   validates :body, presence: true, length: { maximum: 1000 }
+
+  scope :recent, -> (count) { order(created_at: :desc).limit(count).reverse }
 end
